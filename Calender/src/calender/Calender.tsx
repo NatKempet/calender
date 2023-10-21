@@ -1,4 +1,4 @@
-import { add, differenceInDays, endOfMonth, format, setDate, startOfMonth, sub } from "date-fns";
+import { add, differenceInDays, endOfMonth, format, getMonth, setDate, startOfMonth, sub } from "date-fns";
 import Cell from "./Cell";
 import { useState } from "react";
 
@@ -7,9 +7,10 @@ const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 interface props {
   value?: Date;
   onChange?: (value: Date) => void;
+  events?: any;
 }
 
-const Calender: React.FC<props> = ({ value = new Date(), onChange }) => {
+const Calender: React.FC<props> = ({ value = new Date(), onChange, events }) => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
   const numDays = differenceInDays(endDate, startDate) + 1;
@@ -25,7 +26,7 @@ const Calender: React.FC<props> = ({ value = new Date(), onChange }) => {
   const handleDate = (index: number) =>{
     const date = setDate(value, index);
     onChange && onChange(date);
-  };
+  };  
   return (
     <>
       <div className="w-[600px] border-t border-l">
@@ -49,7 +50,10 @@ const Calender: React.FC<props> = ({ value = new Date(), onChange }) => {
           {Array.from({ length: numDays }).map((_, index) => {
             const date = index + 1;
             const isCurrentDate = date === value.getDate();
-            return <Cell isActive = {isCurrentDate} onClick = {() => handleDate(date)} key={date}>{date}</Cell>;
+            const isEvent = events.some((elements:any) => {
+              return elements.Day == date && elements.Month - 1 == value.getMonth() && elements.Year == value.getFullYear();
+            });
+            return <Cell isActive = {isCurrentDate} onClick = {() => handleDate(date)} key={date} isEvent = {isEvent}>{date}</Cell>;
           })}
 
           {Array.from({ length: suffixDays }).map((_, index) => (

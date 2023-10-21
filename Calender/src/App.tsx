@@ -28,7 +28,6 @@ const App = () => {
     "November",
     "December",
   ];
-
   const getEvents = async () => {
     try {
       const data = await getDocs(eventsCollection);
@@ -74,7 +73,7 @@ const App = () => {
             Today
           </button>
         </div>
-        <Calender value={currentDate} onChange={setCurrentDate} />
+        <Calender value={currentDate} onChange={setCurrentDate} events={events}/>
         <div className="border w-[300px] flex flex-col divide-y divide-slate-700">
           <div
             className="flex justify-center hover:bg-gray-200 active:bg-gray-400 cursor-pointer"

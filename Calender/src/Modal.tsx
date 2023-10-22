@@ -24,8 +24,8 @@ const Modal = ({ closeModal, getData }: any) => {
             setDay(parseInt(e.target.value));
           }}
         />
-          <br />
-          <br />
+        <br />
+        <br />
         <input
           placeholder="Month..."
           type="number"
@@ -59,7 +59,7 @@ const Modal = ({ closeModal, getData }: any) => {
           <button onClick={() => closeModal(false)}>cancel</button>
           <button
             onClick={() => {
-              getData(day,month,year, event);
+              getData(day, month, year, event);
             }}
           >
             Add

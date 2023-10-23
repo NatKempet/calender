@@ -56,6 +56,7 @@ const CalenderPage = () => {
   };
 
   useEffect(() => {
+    document.body.style.backgroundColor = "#f1ecff";
     getEvents();
   }, [getEvents()]);
 
@@ -82,13 +83,13 @@ const CalenderPage = () => {
       {openModal && <Modal closeModal={setOpenModal} getData={getData} />}
       <div className="mt-32 flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-4">
-          <p className="text-[19px]">
+          <p className="text-[25px] text-white">
             Selected Date: {format(currentDate, "dd LLLL yyyy")}
           </p>
           <div>
           {events.map((elements:any) => {
             if(elements.Day == currentDate.getDate() && elements.Month == currentDate.getMonth() + 1 && elements.Year == currentDate.getFullYear()){
-              return <p className="font-bold text-[19px]">{elements.Activity} </p>;
+              return <p className="font-bold text-[25px] text-white">{elements.Activity} </p>;
             }else{
               return null;
             }
@@ -113,7 +114,7 @@ const CalenderPage = () => {
               setOpenModal(true);
             }}
           >
-            <b className="text-[30px]">Add Events</b>
+            <b className="text-[30px] text-white">Add Events</b>
           </div>
           <div
             className="grid justify-items-center hover:bg-gray-200 active:bg-gray-400 cursor-pointer"
@@ -129,12 +130,12 @@ const CalenderPage = () => {
               <div className="flex flex-col items-center">
                 <br />
                 <h1
-                  className="text-center text-[20px] font-[600]"
+                  className="text-center text-[20px] font-[600] text-white"
                   key={index.Day}
                 >
                   {index.Day} {Month[index.Month - 1]} {index.Year}
                 </h1>
-                <p className="text-center text-[15px]" key={index.Activity}>
+                <p className="text-center text-[15px] text-white" key={index.Activity}>
                   {index.Activity}
                 </p>
                 <br />

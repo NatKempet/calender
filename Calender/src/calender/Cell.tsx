@@ -19,10 +19,10 @@ const Cell: React.FC<Props> = ({
       <div
         onClick={isActive ? undefined : onClick}
         className={clsx(
-          "h-12 flex items-center justify-center border-b border-r",
+          "h-12 flex items-center justify-center border-b border-r text-white",
           { "text-white bg-blue-600": isActive },
           {
-            "cursor-pointer hover:bg-gray-100 active:bg-gray-200":
+            "cursor-pointer hover:bg-gray-300 active:bg-gray-400":
               !isActive && onClick,
           },
           { "text-white bg-red-500": isEvent },

@@ -85,13 +85,15 @@ const CalenderPage = () => {
           <p className="text-[19px]">
             Selected Date: {format(currentDate, "dd LLLL yyyy")}
           </p>
-          <p className="font-bold text-[19px]">{events.map((elements:any) => {
+          <div>
+          {events.map((elements:any) => {
             if(elements.Day == currentDate.getDate() && elements.Month == currentDate.getMonth() + 1 && elements.Year == currentDate.getFullYear()){
-              return elements.Activity;
+              return <p className="font-bold text-[19px]">{elements.Activity} </p>;
             }else{
-              return true;
+              return null;
             }
-          })}</p>
+          })}
+          </div>
           <button
             className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
             onClick={handleSetToday}

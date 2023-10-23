@@ -11,6 +11,7 @@ import {
   addWeeks,
   subWeeks,
 } from "date-fns";
+import { motion } from "framer-motion";
 
 const WeeklyPage = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -39,7 +40,11 @@ const WeeklyPage = () => {
 
   return (
     <>
-      <div></div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      ></motion.div>
     </>
   );
 };

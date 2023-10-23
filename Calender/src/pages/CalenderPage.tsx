@@ -12,6 +12,7 @@ import {
 import Modal from "../Modal";
 import downArrow from "../pictures/61932.png";
 import upArrow from "../pictures/56841.png";
+import { motion } from "framer-motion";
 
 const CalenderPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -79,7 +80,11 @@ const CalenderPage = () => {
     return setSelected(false);
   };
   return (
-    <>
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth,transition:{duration: 0.7} }}
+    >
       {openModal && <Modal closeModal={setOpenModal} getData={getData} />}
       <div className="mt-32 flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-4">
@@ -87,13 +92,21 @@ const CalenderPage = () => {
             Selected Date: {format(currentDate, "dd LLLL yyyy")}
           </p>
           <div>
-          {events.map((elements:any) => {
-            if(elements.Day == currentDate.getDate() && elements.Month == currentDate.getMonth() + 1 && elements.Year == currentDate.getFullYear()){
-              return <p className="font-bold text-[25px] text-white">{elements.Activity} </p>;
-            }else{
-              return null;
-            }
-          })}
+            {events.map((elements: any) => {
+              if (
+                elements.Day == currentDate.getDate() &&
+                elements.Month == currentDate.getMonth() + 1 &&
+                elements.Year == currentDate.getFullYear()
+              ) {
+                return (
+                  <p className="font-bold text-[25px] text-white">
+                    {elements.Activity}{" "}
+                  </p>
+                );
+              } else {
+                return null;
+              }
+            })}
           </div>
           <button
             className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
@@ -135,7 +148,10 @@ const CalenderPage = () => {
                 >
                   {index.Day} {Month[index.Month - 1]} {index.Year}
                 </h1>
-                <p className="text-center text-[15px] text-white" key={index.Activity}>
+                <p
+                  className="text-center text-[15px] text-white"
+                  key={index.Activity}
+                >
                   {index.Activity}
                 </p>
                 <br />
@@ -151,7 +167,7 @@ const CalenderPage = () => {
           )}
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

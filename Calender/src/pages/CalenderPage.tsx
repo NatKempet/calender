@@ -13,6 +13,7 @@ import Modal from "../Modal";
 import downArrow from "../pictures/61932.png";
 import upArrow from "../pictures/56841.png";
 import { motion } from "framer-motion";
+import PariclesBg from "../components/PariclesBg";
 
 const CalenderPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());

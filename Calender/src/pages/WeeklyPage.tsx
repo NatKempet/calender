@@ -14,7 +14,7 @@ import {
 import { motion } from "framer-motion";
 import Reveal from "../components/Reveal";
 
-const WeeklyPage = () => {
+const WeeklyPage = ({showDetailsHandle}:any) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState(getWeek(currentMonth));
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -38,6 +38,18 @@ const WeeklyPage = () => {
       setCurrentWeek(getWeek(addWeeks(currentMonth, 1)));
     }
   };
+
+  const onDateClickHandle = (day:any, dayStr:any) => {
+    setSelectedDate(day);
+    showDetailsHandle(dayStr);
+  };
+
+  const renderHeader = () => {
+    const dateFormat = "MMM yyyy";
+    return(
+      <div className="block w-full pt-[1.75em] pr-0 border-b-1 border-solid bg-current flex flex-row"></div>
+    )
+  }
 
   return (
     <>

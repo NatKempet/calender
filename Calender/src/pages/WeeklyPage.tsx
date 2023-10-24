@@ -12,6 +12,7 @@ import {
   subWeeks,
 } from "date-fns";
 import { motion } from "framer-motion";
+import Reveal from "../components/Reveal";
 
 const WeeklyPage = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());

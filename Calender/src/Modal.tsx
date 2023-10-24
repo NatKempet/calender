@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./components/Modal.css";
 import { da } from "date-fns/locale";
 import "./App";
+import Reveal from "./components/Reveal";
 
 const Modal = ({ closeModal, getData }: any) => {
   const [day, setDay] = useState(0);
@@ -10,6 +11,7 @@ const Modal = ({ closeModal, getData }: any) => {
   const [event, setEvent] = useState("");
   return (
     <div className="modalBackground">
+      <Reveal>
       <div className="modalContainer">
         <div className="title">
           <h1 className="text-[30px] font-[700] text-white">Add Events</h1>
@@ -66,6 +68,7 @@ const Modal = ({ closeModal, getData }: any) => {
           </button>
         </div>
       </div>
+      </Reveal>
     </div>
   );
 };

@@ -14,6 +14,7 @@ import downArrow from "../pictures/61932.png";
 import upArrow from "../pictures/56841.png";
 import { motion } from "framer-motion";
 import PariclesBg from "../components/PariclesBg";
+import Reveal from "../components/Reveal";
 
 const CalenderPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -89,9 +90,12 @@ const CalenderPage = () => {
       {openModal && <Modal closeModal={setOpenModal} getData={getData} />}
       <div className="mt-32 flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-4">
+          <Reveal>
           <p className="text-[25px] text-white">
             Selected Date: {format(currentDate, "dd LLLL yyyy")}
           </p>
+          </Reveal>
+          <Reveal>
           <div>
             {events.map((elements: any) => {
               if (
@@ -100,27 +104,35 @@ const CalenderPage = () => {
                 elements.Year == currentDate.getFullYear()
               ) {
                 return (
+                  <Reveal>
                   <p className="font-bold text-[25px] text-white">
                     {elements.Activity}{" "}
                   </p>
+                  </Reveal>
                 );
               } else {
                 return null;
               }
             })}
           </div>
+          </Reveal>
+          <Reveal>
           <button
             className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
             onClick={handleSetToday}
           >
             Today
           </button>
+          </Reveal>
         </div>
+        <Reveal>
         <Calender
           value={currentDate}
           onChange={setCurrentDate}
           events={events}
         />
+        </Reveal>
+        <Reveal>
         <div className="border w-[300px] flex flex-col divide-y divide-slate-700">
           <div
             className="flex justify-center hover:bg-gray-200 active:bg-gray-400 cursor-pointer"
@@ -143,30 +155,37 @@ const CalenderPage = () => {
             selected == true ? (
               <div className="flex flex-col items-center">
                 <br />
+                <Reveal>
                 <h1
                   className="text-center text-[20px] font-[600] text-white"
                   key={index.Day}
                 >
                   {index.Day} {Month[index.Month - 1]} {index.Year}
                 </h1>
+                </Reveal>
+                <Reveal>
                 <p
                   className="text-center text-[15px] text-white"
                   key={index.Activity}
                 >
                   {index.Activity}
                 </p>
+                </Reveal>
                 <br />
+                <Reveal>
                 <button
                   onClick={() => deleteEvents(index.id)}
                   className="bg-rose-700 text-white rounded-lg"
                 >
                   Delete Event
                 </button>
+                </Reveal>
                 <br />
               </div>
             ) : null
           )}
         </div>
+        </Reveal>
       </div>
     </motion.div>
   );

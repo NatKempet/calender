@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route,useLocation } from "react-router-dom";
 import CalenderPage from '../pages/CalenderPage';
 import WeeklyPage from '../pages/WeeklyPage';
-
+import "../App.css"
 import {AnimatePresence} from 'framer-motion';
 const AnimatorRoutes = () => {
     const location = useLocation();

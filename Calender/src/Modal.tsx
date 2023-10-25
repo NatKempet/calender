@@ -21,7 +21,7 @@ const Modal = ({ closeModal, getData }: any) => {
         <input
           placeholder="day..."
           type="number"
-          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500"
+          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500 text-white"
           onChange={(e) => {
             setDay(parseInt(e.target.value));
           }}
@@ -31,7 +31,7 @@ const Modal = ({ closeModal, getData }: any) => {
         <input
           placeholder="Month..."
           type="number"
-          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500"
+          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500 text-white"
           onChange={(e) => {
             setMonth(parseInt(e.target.value));
           }}
@@ -41,7 +41,7 @@ const Modal = ({ closeModal, getData }: any) => {
         <input
           placeholder="Year..."
           type="number"
-          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500"
+          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500 text-white"
           onChange={(e) => {
             setYear(parseInt(e.target.value));
           }}
@@ -50,7 +50,7 @@ const Modal = ({ closeModal, getData }: any) => {
         <br />
         <input
           placeholder="Event title..."
-          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500"
+          className="border-solid border-2 border-slate-800 focus:bg-slate-300 h-[50px] bg-gray-500 text-white"
           onChange={(e) => {
             setEvent(e.target.value);
           }}

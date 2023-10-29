@@ -133,7 +133,11 @@ const WeeklyPage = ({ showDetailsHandle }: any) => {
                 : isSameDay(day, selectedDate)
                 ? "border-l-[10px] border-blue-500 bg-blue-200 bg-opacity-20"
                 : "border-zinc-400"
-            }`}
+            } ${events.some((element: any) => {
+              element.Day == formattedDate &&
+                element.Month == currentMonth.getMonth() + 1 &&
+                element.Year == currentMonth.getFullYear() ? "border-l-[10px] border-red-500 bg-red-200 bg-opacity-20" : ""
+            })}`}
             onClick={() => {
               const dayStr = format(cloneDay, "ccc d MM yyyy");
               onDateClickHandle(cloneDay, dayStr);
